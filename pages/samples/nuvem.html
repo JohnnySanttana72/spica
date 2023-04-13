@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Nuvem de Palavras com Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.0.7/wordcloud2.min.js"></script>
+</head>
+<body>
+  <h1>Nuvem de Palavras com Firebase</h1>
+  <div id="word-cloud"></div>
+
+  <script>
+    // Inicializando o Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyB5nE6maLxeeJpv_53dnF5Qin5Ri6pS5uw",
+              authDomain: "fir-myapp-7bdf1.firebaseapp.com",
+              databaseURL: "https://fir-myapp-7bdf1.firebaseio.com",
+              projectId: "fir-myapp-7bdf1",
+              storageBucket: "fir-myapp-7bdf1.appspot.com",
+              messagingSenderId: "96504932152",
+              appId: "1:96504932152:web:cdbe00fbda7c6a9befc3cd",
+              measurementId: "G-K1VGXCE7T5"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Referenciando a coleção do Firebase
+    const collection = firebase.firestore().collection('courses');
+
+    // Obtendo os dados da coleção em formato JSON
+    collection.get().then(querySnapshot => {
+      let data = [];
+      querySnapshot.forEach(doc => {
+        data.push(doc.data());
+      });
+
+      // Convertendo os dados em um array
+      let array = JSON.parse(JSON.stringify(data));
+
+      // Criando a nuvem de palavras
+      let wordCloud = WordCloud(document.getElementById('word-cloud'), {
+        list: array,
+        weightFactor: 10,
+        fontFamily: 'Roboto',
+        color: 'random-dark'
+      });
+
+      // Renderizando a nuvem de palavras
+      wordCloud.start();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+	//Depoimentos       
+apiKey: "AIzaSyB5nE6maLxeeJpv_53dnF5Qin5Ri6pS5uw",
+              authDomain: "fir-myapp-7bdf1.firebaseapp.com",
+              databaseURL: "https://fir-myapp-7bdf1.firebaseio.com",
+              projectId: "fir-myapp-7bdf1",
+              storageBucket: "fir-myapp-7bdf1.appspot.com",
+              messagingSenderId: "96504932152",
+              appId: "1:96504932152:web:cdbe00fbda7c6a9befc3cd",
+              measurementId: "G-K1VGXCE7T5"
+
+
+
+
+<div class="col-md-10 grid-margin stretch-card">
+      <div class="card-body py-5">
+          <title>Exibir conteúdo do Realtime Database</title>
+          <!-- Adicione as configurações do Firebase -->
+          <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+          <script>
+            // Configure o Firebase
+            var firebaseConfig = {
+              apiKey: "AIzaSyB5nE6maLxeeJpv_53dnF5Qin5Ri6pS5uw",
+              authDomain: "fir-myapp-7bdf1.firebaseapp.com",
+              databaseURL: "https://fir-myapp-7bdf1.firebaseio.com",
+              projectId: "fir-myapp-7bdf1",
+              storageBucket: "fir-myapp-7bdf1.appspot.com",
+              messagingSenderId: "96504932152",
+              appId: "1:96504932152:web:cdbe00fbda7c6a9befc3cd",
+              measurementId: "G-K1VGXCE7T5"
+            };
+            firebase.initializeApp(firebaseConfig);
+
+            // Obtenha uma referência para o nó que deseja exibir
+            var ref = firebase.database().ref("courses");
+
+            // Adicione um listener para exibir o conteúdo do nó em tempo real
+            ref.on("value", function(snapshot) {
+              // Limpar a lista
+              var lista = document.getElementById("conteudo");
+              lista.innerHTML = "";
+
+              // Obter a string de pesquisa do campo de entrada
+              var searchString = document.getElementById("searchInput").value;
+
+              // Adicionar cada filho à lista que contém a string de pesquisa
+              snapshot.forEach(function(childSnapshot) {
+                var data = childSnapshot.val();
+                if (searchString === "" || data.depoimento.indexOf(searchString) !== -1) {
+                  var div = document.createElement("div");
+                  div.innerHTML = "<b>Assunto:</b> " + data.assunto + "<br>" +
+                                  "<b>Colegio:</b> " + data.colegio + "<br>" +
+                                  "<b>Depoimento:</b> " + data.depoimento + "<br><br>";
+                  lista.appendChild(div);
+                }
+              });
+            });
+
+            // Adicionar um listener para o botão de pesquisa
+            document.getElementById("searchButton").addEventListener("click", function() {
+              ref.on("value", function(snapshot) {
+                // Limpar a lista
+                var lista = document.getElementById("conteudo");
+                lista.innerHTML = "";
+
+                // Obter a string de pesquisa do campo de entrada
+                var searchString = document.getElementById("searchInput").value;
+
+                // Adicionar cada filho à lista que contém a string de pesquisa
+                snapshot.forEach(function(childSnapshot) {
+                  var data = childSnapshot.val();
+                  if (searchString === "" || data.depoimento.indexOf(searchString) !== -1) {
+                    var div = document.createElement("div");
+                    div.innerHTML = "<b>Assunto:</b> " + data.assunto + "<br>" +
+                                    "<b>Colegio:</b> " + data.colegio + "<br>" +
+                                    "<b>Depoimento:</b> " + data.depoimento + "<br><br>";
+                    lista.appendChild(div);
+                  }
+                });
+              });
+            });
+          </script>
+      <h4 class="card-title">Gerenciar Administradores</h4>
+          
+          <input type="text" id="searchInput">
+          <button id="searchButton">Pesquisar</button>
+          <br><br>
+          <div id="conteudo"></div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+  <div class="col-md-15 grid-margin stretch-card">
+    <div class="card">
+      <div class="row">
+        <div class="card-body">
+         <h4 class="card-title" style="font-size: x-large">Lista de Postagens</h4>
+          <div class="table-responsive">
+            <table class="table table-striped" border ="1" style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                    <th style="padding: 10px; text-align: left;" ><strong>Título</strong></th>
+
+                    <th style="padding: 10px; text-align: left;"> <strong>Ação</strong> </th>
+
+                    </tr>
+                </thead>
+                  <tbody id="post-list">
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        edite esse código para criar uma tabela, com os campos titulo e ação, no campo ação ter dois botões um apagar e outro editar: <head>
+    <meta charset="UTF-8">
+    <title>Lista de Postagens</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Lista de Postagens</h1>
+    <ul id="post-list"></ul>
+    
+    <!-- Firebase Config -->
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDoJd--sy11Ui45otWPoQ-siH_KN8xrPU8",
+            authDomain: "postagens-ec3c9.firebaseapp.com",
+            databaseURL: "https://postagens-ec3c9-default-rtdb.firebaseio.com",
+            projectId: "postagens-ec3c9",
+            storageBucket: "postagens-ec3c9.appspot.com",
+            messagingSenderId: "617772043013",
+            appId: "1:617772043013:web:9d9fe264a2e879e59e856c"
+        };
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+
+        // Obtém as postagens do banco de dados
+        database.ref('postagens').once('value').then(function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var postagem = childSnapshot.val();
+                var key = childSnapshot.key;
+                // Adiciona a postagem à lista
+                $('#post-list').append('<li><a href="#" class="post-link" data-key="' + key + '">' + postagem.titulo + '</a> <button class="delete-button" data-key="' + key + '">Apagar</button></li>');
+            });
+        });
+
+        // Obtém a postagem selecionada e exibe os campos para edição
+        $(document).on('click', '.post-link', function() {
+            var key = $(this).data('key');
+            database.ref('postagens/' + key).once('value').then(function(snapshot) {
+                var postagem = snapshot.val();
+                var form = '<form id="form- class="forms-sample"' + key + '" enctype="multipart/form-data"><label>Título:</label><input type="text" name="titulo" value="' + postagem.titulo + '"><br><label>Texto:</label><br><textarea name="texto">' + postagem.texto + '</textarea><br><label>Imagem:</label><input type="file" name="imagem"><br><input type="hidden" name="key" value="' + key + '"><br><button type="submit">Salvar</button></form>';
+                $('#post-list').html(form);
+                // Salva as alterações no banco de dados
+                $('#form-' + key).submit(function(event) {
+                    event.preventDefault();
+                    var titulo = $('input[name=titulo]').val();
+                    var texto = $('textarea[name=texto]').val();
+                    var key = $('input[name=key]').val();
+                    var file = $('input[name=imagem]')[0].files[0];
+            // Se uma nova imagem foi selecionada, salva a imagem no Storage e atualiza a URL da postagem
+            if (file) {
+                var fileName = file.name;
+                var storageFile = storageRef.child('imagens/' + fileName);
+                storageFile.put(file).then(function(snapshot) {
+                snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                database.ref('postagens/' + key).update({
+                titulo: titulo,
+                texto: texto,
+                imagemURL: downloadURL
+                 }).then(function() {
+                    alert('Postagem atualizada com sucesso!');
+                    location.reload();
+                 });
+                });
+                });
+                }
+            // Caso contrário, apenas atualiza os campos de texto da postagem
+            else {
+                database.ref('postagens/' + key).update({
+                titulo: titulo,
+                texto: texto
+                }).then(function() {
+                alert('Postagem atualizada com sucesso!');
+                location.reload();
+                });
+            }
+            });
+            });
+            });
+            // Apaga a postagem selecionada
+            $(document).on('click', '.delete-button', function() {
+                    var key = $(this).data('key');
+                    database.ref('postagens/' + key).remove().then(function() {
+                        alert('Postagem apagada com sucesso!');
+                        location.reload();
+                    });
+                });
+            </script>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <head>
+    <meta charset="UTF-8">
+    <title>Lista de Postagens</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Lista de Postagens</h1>
+    <ul id="post-list"></ul>
+<!-- Firebase Config -->
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDoJd--sy11Ui45otWPoQ-siH_KN8xrPU8",
+        authDomain: "postagens-ec3c9.firebaseapp.com",
+        databaseURL: "https://postagens-ec3c9-default-rtdb.firebaseio.com",
+        projectId: "postagens-ec3c9",
+        storageBucket: "postagens-ec3c9.appspot.com",
+        messagingSenderId: "617772043013",
+        appId: "1:617772043013:web:9d9fe264a2e879e59e856c"
+    };
+    // Inicializa o Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+
+    // Obtém as postagens do banco de dados
+    database.ref('postagens').once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var postagem = childSnapshot.val();
+            var key = childSnapshot.key;
+            // Adiciona a postagem à lista
+            $('#post-list').append('<li><a href="#" class="post-link" data-key="' + key + '">' + postagem.titulo + '</a> <button class="delete-button" data-key="' + key + '">Apagar</button></li>');
+        });
+    });
+
+    // Obtém a postagem selecionada e exibe os campos para edição
+    $(document).on('click', '.post-link', function() {
+        var key = $(this).data('key');
+        database.ref('postagens/' + key).once('value').then(function(snapshot) {
+            var postagem = snapshot.val();
+            var form = '<form id="form-' + key + '" class="forms-sample" enctype="multipart/form-data"><label>Título:</label><input type="text" name="titulo" value="' + postagem.titulo + '"><br><label>Texto:</label><br><textarea name="texto">' + postagem.texto + '</textarea><br><label>Imagem:</label><input type="file" name="imagem"><br><input type="hidden" name="key" value="' + key + '"><br><button type="submit">Salvar</button></form>';
+            // Abre a página para editar as informações em uma nova janela
+            var newWindow = window.open('', '_blank');
+            newWindow.document.write(form);
+            // Salva as alterações no banco de dados
+            $('#form-' + key).submit(function(event) {
+                event.preventDefault();
+                var titulo = $('input[name=titulo]').val();
+                var texto = $('textarea[name=texto]').val();
+                var key = $('input[name=key]').val();
+                var file = $('input[name=imagem]')[0].files[0];// Adiciona a postagem ao storage, se houver imagem selecionada
+            if (file) {
+            var imageName = key + '_' + file.name;
+            var imageRef = storageRef.child(imageName);
+            imageRef.put(file).then(function(snapshot) {
+            // Salva a URL da imagem no banco de dados
+            imageRef.getDownloadURL().then(function(url) {
+            database.ref('postagens/' + key).update({
+            titulo: titulo,
+            texto: texto,
+            imagem: url
+            });
+            // Fecha a janela de edição
+            newWindow.close();
+            });
+            });
+            } else {
+            // Salva a postagem sem imagem
+            database.ref('postagens/' + key).update({
+            titulo: titulo,
+            texto: texto
+            });
+            // Fecha a janela de edição
+            newWindow.close();
+            }
+            });
+            });
+            });
+
+
+            // Deleta a postagem selecionada
+            $(document).on('click', '.delete-button', function() {
+                var key = $(this).data('key');
+                if (confirm('Tem certeza que deseja apagar esta postagem?')) {
+                    // Deleta a imagem do storage, se houver
+                    database.ref('postagens/' + key).once('value').then(function(snapshot) {
+                        var postagem = snapshot.val();
+                        if (postagem.imagem) {
+                            var imageName = key + '_' + postagem.imagem.split('/').pop();
+                            var imageRef = storageRef.child(imageName);
+                            imageRef.delete();
+                        }
+                    });
+                    // Deleta a postagem do banco de dados
+                    database.ref('postagens/' + key).remove();
+                    // Remove a postagem da lista
+                    $(this).parent().remove();
+                }
+            });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+ // Exibir cada depoimento em uma nova div
+              depoimentos.forEach(function(depoimento) {
+                var div = document.createElement("div");
+                div.innerHTML = "<table border = \"1\" style = \"border-collapse: collapse; width: 90%;\">"+
+                                "<thead>"+
+                                "<p ><strong>Assunto: </strong>" + depoimento.assunto + "</p>" +
+                                "<p style=\"padding: 10px; text-align: left;\"><strong>Colegio: </strong>" + depoimento.colegio + "</p>" +
+                                "<p style=\"padding: 10px; text-align: left;\"><strong>Depoimento: </strong>" + depoimento.depoimento + "</p>"+
+                                "<br>"+
+                                "<br>"+
+                                "</thead>"+
+                                "</table>";
+                                
+                document.getElementById("conteudo").appendChild(div);
+              });

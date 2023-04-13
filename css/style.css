@@ -14635,6 +14635,13 @@ a.close.disabled {
   content: "";
 }
 
+.quebra-linha {
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+
 .carousel-item {
   position: relative;
   display: none;
@@ -18974,11 +18981,11 @@ code {
 }
 
 .traffic-status .item:nth-child(1) .color-border {
-  background: #1cbccd;
+  background: #9ad0f5;
 }
 
 .traffic-status .item:nth-child(2) .color-border {
-  background: #6640b2;
+  background: #ffb1c1;
 }
 
 .traffic-status .item:nth-child(3) .color-border {
@@ -18998,15 +19005,15 @@ code {
 }
 
 .server-status-legend .item:nth-child(1) .color-bullet {
-  background: #d8d8d8;
+  background: #ffe0e6;
 }
 
 .server-status-legend .item:nth-child(2) .color-bullet {
-  background: #6640b2;
+  background: #cdebff;
 }
 
 .server-status-legend .item:nth-child(3) .color-bullet {
-  background: #1cbccd;
+  background: #fff5dd;
 }
 
 /*-------------------------------------------------------------------*/
