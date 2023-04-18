@@ -164,17 +164,17 @@
               </div>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
+              <a href="pages\forms\basic_elements.php" class="nav-link icon-link">
                 <i class="mdi mdi-plus-circle-outline"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
+              <a href="https://www.uefs.br/" target="_blank" class="nav-link icon-link">
                 <i class="mdi mdi-web"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
+              <a href="pages\forms\editarPublic.php" class="nav-link icon-link">
                 <i class="mdi mdi-clock-outline"></i>
               </a>
             </li>
@@ -219,14 +219,14 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-flex align-items-center justify-content-between flex-wrap">
-                        <p class="card-title">Weekly Balance</p>
-                        <p class="text-success font-weight-medium">20.15 %</p>
+                        <p class="card-title">Alerta para a Palavra "Arma"</p>
+                        
                       </div>
+                      <p >Total: </p>
+                      <p class="text-muted" id="contador3" ></p>
                       <div class="d-flex align-items-center flex-wrap mb-3">
-                        <h5 class="font-weight-normal mb-0 mb-md-1 mb-lg-0 mr-3">$22.736</h5>
-                        <p class="text-muted mb-0">Avg Sessions</p>
                       </div>
-                      <canvas id="balance-chart" height="130"></canvas>
+                      <div id="resultado3"></div>
                     </div>
                   </div>
                 </div>
@@ -241,7 +241,7 @@
                         <h5 class="font-weight-normal mb-0 mb-md-1 mb-lg-0 mr-3">17.247</h5>
                         <p class="text-muted mb-0">Avg Sessions</p>
                       </div>
-                      <canvas id="task-chart" height="130"></canvas>
+                      <div id="resultado3"></div>
                     </div>
                   </div>
                 </div>
@@ -252,35 +252,36 @@
                 <div class="col-md-6 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <p class="card-title">Alerta da Palavra Massacre</p>
-                      Total:
-                      <p class="text-muted" id="contadorEstudar" ></p>
+                      <p class="card-title">Alerta para a Palavra "Suicídio"</p>
+                      <p >Total: </p>
+                      <p class="text-muted" id="contador1" ></p>
                       <div class="color-border"></div>
                       <div class="regional-chart-legend d-flex align-items-center flex-wrap mb-1"
                         id="regional-chart-legend"></div>
-                      <div id="resultados"></div>
+                      <div id="resultado1"></div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-12 col-xl-6 grid-margin stretch-card">
+                  
                   <div class="card">
-                    <div class="card-body pb-0">
-                      <div class="d-flex align-items-center mb-4">
-                        <p class="card-title mb-0 mr-1">Today activity</p>
-                        <div class="badge badge-info badge-pill">2</div>
-                      </div>
-                      <div class="d-flex flex-wrap pt-2">
+                    <div class="card-body">
+                        <p class="card-title">Alerta para a Palavra "Matar"</p>
+                        <p>Total</p>
+                        <p class="text-muted" id="contador2" ></p>
+
+                        <div class="d-flex flex-wrap pt-0">
                         <div class="mr-4 mb-lg-2 mb-xl-0">
-                          <p>Time On Site</p>
-                          <h4 class="font-weight-bold mb-0">77.15 %</h4>
-                        </div>
-                        <div>
-                          <p>Page Views</p>
-                          <h4 class="font-weight-bold mb-0">14.15 %</h4>
-                        </div>
+                          <div class="color-border"></div>
+                          <div class="regional-chart-legend d-flex align-items-center flex-wrap mb-1"
+                        id="regional-chart-legend"></div>
+                          <div id="resultado2"></div>
+
+
+                     </div>
+
                       </div>
                     </div>
-                    <canvas height="150" id="activity-chart"></canvas>
                   </div>
                 </div>
                 <div class="col-md-12 stretch-card">
@@ -292,28 +293,29 @@
                           <div class="item mr-3">
                             <div class="d-flex align-items-center">
                               <div class="color-bullet"></div>
-                              <h5 class="font-weight-bold mb-0" id = "contador1"></h5>
+                              <h5 class="font-weight-bold mb-0" id = "conta1"></h5>
                             </div>
                             <p class="mb-">Bullying</p>
                           </div>
                           <div class="item mr-3">
                             <div class="d-flex align-items-center">
                               <div class="color-bullet"></div>
-                              <h5 class="font-weight-bold mb-0" id = "contador2"></h5>
+                              <h5 class="font-weight-bold mb-0" id = "conta2"></h5>
                             </div>
                             <p class="mb-">Triste</p>
                           </div>
                           <div class="item mr-3">
                             <div class="d-flex align-items-center">
                               <div class="color-bullet"></div>
-                              <h5 class="font-weight-bold mb-0" id = "contador3"></h5>
+                              <h5 class="font-weight-bold mb-0" id = "conta3"></h5>
                             </div>
                             <p class="mb-">Sozinho(a)</p>
                           </div>
                         </div>
                       </div>
+                      <canvas height="170" id="grafico"></canvas>
                     </div>
-                    <canvas height="170" id="grafico"></canvas>
+                   
                   </div>
                 </div>
               </div>
@@ -323,165 +325,36 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Financial management review</h4>
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>
-                            User
-                          </th>
-                          <th>
-                            First name
-                          </th>
-                          <th>
-                            Progress
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>
-                            Deadline
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face1.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Herman Beck
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h4 class="card-title">Busca por Palavra-Chave </h4>
+                  <label for="palavra1" >Palavra-chave 1:</label>
+                  <input type="text" id="palavra1" class="form-control" placeholder="Palavra 1" required><br>
+                  <label for="palavra2">Palavra-chave 2:</label>
+                  <input type="text" id="palavra2" class="form-control" placeholder="Palavra 2" required><br><br>
+                  <button class="btn btn-outline-success btn-fw" onclick="contar()">Contar</button>
+                  <button onclick="gerarPDF()" type="button" class="btn btn-outline-info btn-icon-text">
+                          Gerar PDF
+                  <i class="mdi mdi-printer btn-icon-append"></i>                                                                              
+                  </button>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="col-md-7">
+                          <div class="d-flex justify-content-between traffic-status">
+                            <div class="item">
+                              <p class="mb-">Palavra-Chave 1 </p>
+                              <h5 class="font-weight-bold mb-10" id="conta11">  </h5>
+                              <div class="color-border"></div>
                             </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face2.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="item">
+                              <p class="mb-">Palavra-Chave 2</p>
+                              <h5 class="font-weight-bold mb-10" id="conta22" ></h5>
+                              <div class="color-border" ></div>
                             </div>
-                          </td>
-                          <td>
-                            $245.30
-                          </td>
-                          <td>
-                            July 1, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face3.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $138.00
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face4.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face5.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 160.25
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face6.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            John Doe
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 123.21
-                          </td>
-                          <td>
-                            April 05, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face7.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Henry Tom
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 150.00
-                          </td>
-                          <td>
-                            June 16, 2015
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                          </div>
+                        </div>
+                  <br>
+                  <canvas id="grafico3" width="200" height="200"></canvas> 
+                  
                 </div>
               </div>
             </div>
@@ -676,28 +549,28 @@
             });
 
             // Contar a quantidade de vezes que as strings definidas aparecem em todos os depoimentos
-            var contador1 = 0;
-            var contador2 = 0;
-            var contador3 = 0;
+            var conta1 = 0;
+            var conta2 = 0;
+            var conta3 = 0;
             depoimentos.forEach(function(depoimento) {
                 if (depoimento.depoimento.toLowerCase().includes("bullying")) {
-                    contador1++;
+                    conta1++;
                 }
                 if (depoimento.depoimento.toLowerCase().includes("triste")) {
-                    contador2++;
+                    conta2++;
                 }
                 if (depoimento.depoimento.toLowerCase().match(/\bsozinh[oa]\b/)) {
-                    contador3++;
+                    conta3++;
                 }
 
             });
 
             // Exibir o contador na página da web
-        document.getElementById("contador1").textContent = contador1.toString();
-        document.getElementById("contador2").textContent = contador2.toString();
-        document.getElementById("contador3").textContent = contador3.toString();
+        document.getElementById("conta1").textContent = conta1.toString();
+        document.getElementById("conta2").textContent = conta2.toString();
+        document.getElementById("conta3").textContent = conta3.toString();
 
-            var valores = [contador1, contador2, contador3];
+            var valores = [conta1, conta2, conta3];
 
 var ctx = document.getElementById('grafico').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -706,19 +579,19 @@ var myChart = new Chart(ctx, {
     labels: ['Palavras Frequentes'],
     datasets: [{
       label: 'Bullying', 
-      data: [contador1],
+      data: [conta1],
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgba(255, 99, 132, 1)',
       borderWidth: 1
     }, {
       label: 'Triste', 
-      data: [contador2],
+      data: [conta2],
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
       borderColor: 'rgba(54, 162, 235, 1)',
       borderWidth: 1
     }, {
       label: 'Sozinho(a)', 
-      data: [contador3],
+      data: [conta3],
       backgroundColor: 'rgba(255, 206, 86, 0.2)',
       borderColor: 'rgba(255, 206, 86, 1)',
       borderWidth: 1
@@ -748,7 +621,10 @@ var myChart = new Chart(ctx, {
 </head>
 <body>
 
-    <div ></div>
+
+   
+
+
     <script>
         // Configure o Firebase
         var firebaseConfig = {
@@ -762,40 +638,155 @@ var myChart = new Chart(ctx, {
             measurementId: "G-K1VGXCE7T5"
         };
         firebase.initializeApp(firebaseConfig);
-            // Obtenha uma referência para o nó que deseja exibir
-    var ref = firebase.database().ref('courses');
 
-// Adicione um listener para exibir o conteúdo do nó em tempo real
-ref.on("value", function(snapshot) {
-    // Converter o snapshot em um array de depoimentos
-    var depoimentos = [];
-    snapshot.forEach(function(childSnapshot) {
-        var childData = childSnapshot.val();
-        depoimentos.push(childData);
-    });
+        // Obtenha uma referência para o nó que deseja exibir
+        var ref = firebase.database().ref('courses');
 
-    // Contar a quantidade de vezes que a string "estudar" aparece em todos os depoimentos
-    var contadorEstudar = 0;
-    depoimentos.forEach(function(depoimento) {
-  if (depoimento.depoimento.toLowerCase().includes("massacre")) {
-    contadorEstudar++;
-    var resultado = document.createElement('p');
-    resultado.innerHTML = `<b>Assunto:</b> ${depoimento.assunto}<br><b>Colégio:</b> ${depoimento.colegio}<br><b>Depoimento:</b> ${depoimento.depoimento}<br><br>`;
-    document.getElementById('resultados').appendChild(resultado);
-  }
-});
-    document.getElementById("contadorEstudar").textContent = contadorEstudar.toString();
+        // Adicione um listener para exibir o conteúdo do nó em tempo real
+        ref.on("value", function(snapshot) {
+            // Converter o snapshot em um array de depoimentos
+            var depoimentos = [];
+            snapshot.forEach(function(childSnapshot) {
+                var childData = childSnapshot.val();
+                depoimentos.push(childData);
+            });
 
+            // Contar a quantidade de vezes que a string "estudar" aparece em todos os depoimentos
+            var contador1 = 0;
+            var contador2 = 0;
+            var contador3 = 0;
 
-    // Mostrar a quantidade de vezes que a string "estudar" apareceu
-    var quantidade = document.createElement('p');
-    //quantidade.textContent = "A palavra 'massacre' apareceu " + contadorEstudar + " vezes.";
-    document.getElementById('resultados').appendChild(quantidade);
+            depoimentos.forEach(function(depoimento) {
+                if (depoimento.depoimento.toLowerCase().includes("suicídio")) {
+                    contador1++;
+                    var resultado = document.createElement('p');
+                    resultado.innerHTML = `<b>Assunto:</b> ${depoimento.assunto}<br><b>Colégio:</b> ${depoimento.colegio}<br><b>Depoimento:</b> ${depoimento.depoimento}<br><br>`;
+                    document.getElementById('resultado1').appendChild(resultado);
+                }
+
+                if (depoimento.depoimento.toLowerCase().includes("matar")) {
+                    contador2++;
+                    var resultado = document.createElement('p');
+                    resultado.innerHTML = `<b>Assunto:</b> ${depoimento.assunto}<br><b>Colégio:</b> ${depoimento.colegio}<br><b>Depoimento:</b> ${depoimento.depoimento}<br><br>`;
+                    document.getElementById('resultado2').appendChild(resultado);
+                }
+
+                if (depoimento.depoimento.toLowerCase().includes("arma")) {
+                    contador3++;
+                    var resultado = document.createElement('p');
+                    resultado.innerHTML = `<b>Assunto:</b> ${depoimento.assunto}<br><b>Colégio:</b> ${depoimento.colegio}<br><b>Depoimento:</b> ${depoimento.depoimento}<br><br>`;
+                    document.getElementById('resultado3').appendChild(resultado);
+                }
+            });
+               // Mostrar a quantidade de vezes que cada string apareceu
+                //quantidade.textContent = "A palavra 'massacre' apareceu " + contador1 + " vezes.";
+
+               document.getElementById("contador1").textContent = ` ${contador1} `;
+            document.getElementById("contador2").textContent = `${contador2} `;
+            document.getElementById("contador3").textContent = `${contador3} `;
 });
 </script>
-</body>
-</html>
 
-   
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contagem de palavras-chave</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+</head>
+<body>
+	 <script>
+    // Configure o Firebase
+    var firebaseConfig = {
+        apiKey: "AIzaSyB5nE6maLxeeJpv_53dnF5Qin5Ri6pS5uw",
+            authDomain: "fir-myapp-7bdf1.firebaseapp.com",
+            databaseURL: "https://fir-myapp-7bdf1.firebaseio.com",
+            projectId: "fir-myapp-7bdf1",
+            storageBucket: "fir-myapp-7bdf1.appspot.com",
+            messagingSenderId: "96504932152",
+            appId: "1:96504932152:web:cdbe00fbda7c6a9befc3cd",
+            measurementId: "G-K1VGXCE7T5"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function contar() {
+        var ref = firebase.database().ref('courses');
+
+        // Obtenha os valores das palavras-chave do usuário
+        var palavra1 = document.getElementById("palavra1").value.toLowerCase();
+        var palavra2 = document.getElementById("palavra2").value.toLowerCase();
+
+        ref.on("value", function(snapshot) {
+            // Converter o snapshot em um array de depoimentos
+            var depoimentos = [];
+            snapshot.forEach(function(childSnapshot) {
+                var childData = childSnapshot.val();
+                depoimentos.push(childData);
+            });
+
+            // Contar a quantidade de vezes que as strings definidas aparecem em todos os depoimentos
+            var conta11 = 0;
+            var conta22 = 0;
+            depoimentos.forEach(function(depoimento) {
+                if (depoimento.depoimento.toLowerCase().includes(palavra1)) {
+                    conta11++;
+                }
+                if (depoimento.depoimento.toLowerCase().includes(palavra2)) {
+                    conta22++;
+                }
+            });
+
+            // Atualizar as contagens na página
+            document.getElementById("conta11").innerHTML = conta11;
+            document.getElementById("conta22").innerHTML = conta22;
+
+            // Criar um gráfico de barras com as contagens
+            var ctx = document.getElementById('grafico3').getContext('2d');
+            var chart = new Chart(ctx, { type: 'bar',
+                        data: {
+                        labels: [palavra1, palavra2],
+                        datasets: [{
+                        label: 'Contagem de palavras-chave',
+                        data: [conta11, conta22],
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                        }]
+                        },
+                        options: {
+                        scales: {
+                        yAxes: [{
+                        ticks: {
+                        beginAtZero: true
+                        }
+                        }]
+                        }
+                        }
+                        });
+                        });
+                        }
+                        function gerarPDF() {
+                            var doc = new jsPDF();
+                            var canvas = document.getElementById("grafico3");
+                            var imgData = canvas.toDataURL("image/png");
+                            doc.text("Contagem de palavras-chave", 10, 10);
+                            doc.addImage(imgData, 'JPEG', 10, 20, 180, 150);
+                            doc.save("contagem_palavras.pdf");
+                        }
+
+          </script>
+</body>
+</html> 
 </body>
 </html>

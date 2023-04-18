@@ -165,17 +165,17 @@
               </div>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
+              <a href="../forms/basic_elements.php" class="nav-link icon-link">
                 <i class="mdi mdi-plus-circle-outline"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
+              <a href="https://www.uefs.br/" target="_blank" class="nav-link icon-link">
                 <i class="mdi mdi-web"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link icon-link">
+              <a href="../forms/editarPublic.php" class="nav-link icon-link">
                 <i class="mdi mdi-clock-outline"></i>
               </a>
             </li>
