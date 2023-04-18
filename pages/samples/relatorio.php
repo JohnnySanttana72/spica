@@ -19,12 +19,12 @@
 
     // deleta o usuário com o ID passado por GET
     $sql_code = "DELETE FROM usuarios WHERE id = '$id'";
-    $mysqli->query($sql_code) or die ($mysqli->error);
+    $mysqli->query($sql_code) or die ($mysqli->$error);
 }
 
   // seleciona todos os usuários cadastrados na base de dados
   $sql_code = "SELECT * FROM usuarios";
-  $sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
+  $sql_query = $mysqli->query($sql_code) or die ($mysqli->$error);
 
 ?>
 <head>
@@ -41,7 +41,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/drawable-hdpi-icon.png" />
+  <link rel="shortcut icon" href="../../images/logo-mini.png" />
 </head>
 
 <body>
@@ -146,8 +146,8 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.svg" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
           </div>
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Bem vindo, <?php echo $_SESSION['nome']; ?> </h4>
           <ul class="navbar-nav navbar-nav-right">

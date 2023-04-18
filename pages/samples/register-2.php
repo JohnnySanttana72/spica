@@ -54,7 +54,7 @@ if ($resultado->num_rows > 0) {
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/drawable-hdpi-icon.png" />
+  <link rel="shortcut icon" href="../../images/logo-mini.png" />
 </head>
 
 <body>

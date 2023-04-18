@@ -21,7 +21,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/drawable-hdpi-icon.png" />
+  <link rel="shortcut icon" href="../../images/logo-mini.png" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 </head>
 
@@ -126,8 +126,8 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.svg" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
           </div>
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Bem Vindo, <?php echo $_SESSION['nome']; ?></h4>
           <ul class="navbar-nav navbar-nav-right">
