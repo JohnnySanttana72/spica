@@ -43,10 +43,10 @@
           </a>
         </li>
         <li class="nav-item sidebar-category">
-          <p>Components</p>
+          <p>Gestão</p>
           <span></span>
         </li>
-        <li class="nav-item">
+        <!-- li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <i class="mdi mdi-palette menu-icon"></i>
             <span class="menu-title">UI Elements</span>
@@ -58,7 +58,7 @@
               <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
             </ul>
           </div>
-        </li>
+        </li -->
 
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -80,18 +80,18 @@
             <span class="menu-title">Depoimentos</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!--li class="nav-item">
           <a class="nav-link" href="pages/tables/basic-table.php">
             <i class="mdi mdi-grid-large menu-icon"></i>
             <span class="menu-title">Tables</span>
           </a>
-        </li>
-        <li class="nav-item">
+        </li-->
+        <!--li class="nav-item">
           <a class="nav-link" href="pages/icons/mdi.html">
             <i class="mdi mdi-emoticon menu-icon"></i>
             <span class="menu-title">Icons</span>
           </a>
-        </li>
+        </li-->
         <li class="nav-item sidebar-category">
           <p>Admnistração</p>
           <span></span>
@@ -104,9 +104,9 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+              <!--li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li-->
+              <!--li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li-->
+              <!--li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li-->
               <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.php"> Cadastrar Novo ADM</a></li>
               <li class="nav-item"> <a class="nav-link" href="pages/samples/usuarios.php"> Gerenciar ADM </a></li>
               <li class="nav-item"> <a class="nav-link" href="pages/samples/relatorio.php"> Gerar Relatório </a></li>
@@ -331,7 +331,7 @@
                   <label for="palavra2">Palavra-chave 2:</label>
                   <input type="text" id="palavra2" class="form-control" placeholder="Palavra 2" required><br><br>
                   <button class="btn btn-outline-success btn-fw" onclick="contar()">Contar</button>
-                  <button onclick="gerarPDF()" type="button" class="btn btn-outline-info btn-icon-text">
+                  <button id="contar" onclick="gerarPDF()" type="button" class="btn btn-outline-info btn-icon-text">
                           Gerar PDF
                   <i class="mdi mdi-printer btn-icon-append"></i>                                                                              
                   </button>
@@ -714,6 +714,8 @@ var myChart = new Chart(ctx, {
     };
     firebase.initializeApp(firebaseConfig);
 
+    var chart;
+
     function contar() {
         var ref = firebase.database().ref('courses');
 
@@ -729,53 +731,66 @@ var myChart = new Chart(ctx, {
                 depoimentos.push(childData);
             });
 
-            // Contar a quantidade de vezes que as strings definidas aparecem em todos os depoimentos
-            var conta11 = 0;
-            var conta22 = 0;
-            depoimentos.forEach(function(depoimento) {
-                if (depoimento.depoimento.toLowerCase().includes(palavra1)) {
-                    conta11++;
-                }
-                if (depoimento.depoimento.toLowerCase().includes(palavra2)) {
-                    conta22++;
-                }
-            });
+           
 
-            // Atualizar as contagens na página
-            document.getElementById("conta11").innerHTML = conta11;
-            document.getElementById("conta22").innerHTML = conta22;
+             // Inicialize as contagens de palavras-chave
+    var conta11 = 0;
+    var conta22 = 0;
+			// Percorra cada depoimento para contar as palavras-chave
+			for (var i = 0; i < depoimentos.length; i++) {
+				var depoimento = depoimentos[i].depoimento.toLowerCase();
+				if (depoimento.includes(palavra1)) {
+					conta11++;
+				}
+				if (depoimento.includes(palavra2)) {
+					conta22++;
+				}
+			}
 
-            // Criar um gráfico de barras com as contagens
-            var ctx = document.getElementById('grafico3').getContext('2d');
-            var chart = new Chart(ctx, { type: 'bar',
-                        data: {
-                        labels: [palavra1, palavra2],
-                        datasets: [{
-                        label: 'Contagem de palavras-chave',
-                        data: [conta11, conta22],
-                        backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)'
-                        ],
-                        borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)'
-                        ],
-                        borderWidth: 1
-                        }]
-                        },
-                        options: {
-                        scales: {
-                        yAxes: [{
-                        ticks: {
-                        beginAtZero: true
-                        }
-                        }]
-                        }
-                        }
-                        });
-                        });
-                        }
+			// Atualize as contagens exibidas na página
+			document.getElementById("conta11").textContent = conta11;
+			document.getElementById("conta22").textContent = conta22;
+
+			// Crie um gráfico de barras com as contagens
+			var ctx = document.getElementById('grafico3').getContext('2d');
+			if (chart) {
+				// Se o gráfico já existir, atualize os dados
+				chart.data.labels = [palavra1, palavra2];
+				chart.data.datasets[0].data = [conta11, conta22];
+				chart.update();
+			} else {
+				// Se o gráfico ainda não existir, crie-o
+				chart = new Chart(ctx, {
+					type: 'bar',
+					data: {
+						labels: [palavra1, palavra2],
+						datasets: [{
+							label: 'Contagem de palavras-chave',
+							data: [conta11, conta22],
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)'
+							],
+							borderColor: [
+								 'rgba(255,99,132,1)',
+								 'rgba(54, 162, 235, 1)'
+							],
+							borderWidth: 1
+						}]
+					},
+					options: {
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero:true
+								}
+							}]
+						}
+					}
+				});
+			}
+		});
+	}
                         function gerarPDF() {
                             var doc = new jsPDF();
                             var canvas = document.getElementById("grafico3");

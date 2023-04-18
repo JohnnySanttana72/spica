@@ -42,10 +42,10 @@
           </a>
         </li>
         <li class="nav-item sidebar-category">
-          <p>Components</p>
+          <p>Gestão</p>
           <span></span>
         </li>
-        <li class="nav-item">
+        <!--li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <i class="mdi mdi-palette menu-icon"></i>
             <span class="menu-title">UI Elements</span>
@@ -57,7 +57,7 @@
               <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.php">Typography</a></li>
             </ul>
           </div>
-        </li>
+        </li-->
 
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -79,7 +79,7 @@
             <span class="menu-title">Depoimentos</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!--li class="nav-item">
           <a class="nav-link" href="../../pages/tables/basic-table.php">
             <i class="mdi mdi-grid-large menu-icon"></i>
             <span class="menu-title">Tables</span>
@@ -90,7 +90,7 @@
             <i class="mdi mdi-emoticon menu-icon"></i>
             <span class="menu-title">Icons</span>
           </a>
-        </li>
+        </li-->
         <li class="nav-item sidebar-category">
           <p>Administração</p>
           <span></span>
@@ -103,9 +103,9 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.php"> Login </a></li>
+              <!--li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.php"> Login </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.php"> Login 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.php"> Register </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.php"> Register </a></li-->
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.php"> Cadastrar ADM </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/usuarios.php"> Gerenciar ADM </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/relatorio.php"> Gerar Relatório </a></li>
