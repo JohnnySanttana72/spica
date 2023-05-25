@@ -11,6 +11,7 @@
     include('protect.php');
 
 ?>
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -31,7 +32,7 @@
 <body>
   <div class="container-scroller d-flex">
     <!-- partial:../../partials/_sidebar.html -->
-    
+
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
         <li class="nav-item sidebar-category">
@@ -71,12 +72,14 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_elements.php">Nova Postagem</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/editarPublic.php">Editar Postagens</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_elements.php">Nova Postagem</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/editarPublic.php">Editar Postagens</a>
+              </li>
             </ul>
           </div>
         </li>
-        
+
 
         <li class="nav-item">
           <a class="nav-link" href="../../pages/charts/chartjs.php">
@@ -97,6 +100,7 @@
           </a>
         </li-->
         <li class="nav-item sidebar-category">
+        <?php if ($_SESSION['adm']==2){ ?>
           <p>Admnistração</p>
           <span></span>
         </li>
@@ -111,18 +115,20 @@
               <!--li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.php"> Login 2 </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.php"> Register </a></li-->
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.php"> Cadastrar Novo ADM</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.php"> Cadastrar Novo
+                  ADM</a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/usuarios.php"> Gerenciar ADM </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/relatorio.php"> Gerar Relatório </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/relatorio.php"> Gerar Relatório </a>
+              </li>
 
             </ul>
           </div>
         </li>
-    
-        
-       
+
+        <?php } ?>
+
     </nav>
-    
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
@@ -132,15 +138,18 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.png"
+                alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.png"
+                alt="logo" /></a>
           </div>
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Bem vindo, <?php echo $_SESSION['nome']; ?> </h4>
           <ul class="navbar-nav navbar-nav-right">
-            
-              
+
+
           </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
@@ -148,21 +157,19 @@
           <ul class="navbar-nav mr-lg-2">
             <li class="nav-item nav-search d-none d-lg-block">
               <div class="input-group">
-                <p type="text" class="form-control" placeholder="Nova Postagem" aria-label="search" aria-describedby="search">
+                <p type="text" class="form-control" placeholder="Nova Postagem" aria-label="search"
+                  aria-describedby="search">
               </div>
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="../../images/faces/face5.jpg" alt="profile"/>
+                <img src="../../images/faces/face5.jpg" alt="profile" />
                 <span class="nav-profile-name"><?php echo $_SESSION['nome']; ?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                  <i class="mdi mdi-settings text-primary"></i>
-                  Settings
-                </a>
+
                 <a href="../samples/logout.php" class="dropdown-item">
                   <i class="mdi mdi-logout text-primary"></i>
                   Logout
@@ -175,7 +182,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="https://www.uefs.br/" target="_blank" class="nav-link icon-link">
+              <a href="http://www.dedu.uefs.br/modules/conteudo/conteudo.php?conteudo=40" target="_blank" class="nav-link icon-link">
                 <i class="mdi mdi-web"></i>
               </a>
             </li>
@@ -187,129 +194,164 @@
           </ul>
         </div>
       </nav>
-<html>
+      <html>
 
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- Firebase SDK -->
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<body>
-<div class="col-md-15 grid-margin stretch-card">
-    <div class="card">
-      <div class="row">
-        <div class="card-body">
-         <h4 class="card-title" style="font-size: x-large">Lista de Postagens</h4>
-          <ul  id="post-list"></ul>
-          <a href="basic_elements.php"> <button type="button" class="btn btn-success btn-lg btn-block" > <i  class="mdi mdi-account" ></i>Cadastrar Novo</button> </a>
+      <body>
+        <div class="col-md-15 grid-margin stretch-card">
+          <div class="card">
+            <div class="row">
+              <div class="card-body">
+                <p class="card-title" style="font-size: x-large">&nbsp; &nbsp; Postagens</p>
+                <ul id="post-list"></ul>
+                <a href="basic_elements.php"> <button type="button" class="btn btn-success btn-lg btn-block"> <i
+                      class="mdi mdi-account">Cadastrar Novo</i></button> </a>
+                      
 
+              </div>
+              
+            </div>
+            <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                   
+                       
           </div>
         </div>
-      </div>
-    </div>
 
-<!-- Firebase Config -->
-<script>
-    var firebaseConfig = {
-        apiKey: "AIzaSyDoJd--sy11Ui45otWPoQ-siH_KN8xrPU8",
-        authDomain: "postagens-ec3c9.firebaseapp.com",
-        databaseURL: "https://postagens-ec3c9-default-rtdb.firebaseio.com",
-        projectId: "postagens-ec3c9",
-        storageBucket: "postagens-ec3c9.appspot.com",
-        messagingSenderId: "617772043013",
-        appId: "1:617772043013:web:9d9fe264a2e879e59e856c"
-    };
-    // Inicializa o Firebase
-    firebase.initializeApp(firebaseConfig);
-    var database = firebase.database();
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
+        <!-- Firebase Config -->
+        <script>
+          var firebaseConfig = {
+            apiKey: "AIzaSyDoJd--sy11Ui45otWPoQ-siH_KN8xrPU8",
+            authDomain: "postagens-ec3c9.firebaseapp.com",
+            databaseURL: "https://postagens-ec3c9-default-rtdb.firebaseio.com",
+            projectId: "postagens-ec3c9",
+            storageBucket: "postagens-ec3c9.appspot.com",
+            messagingSenderId: "617772043013",
+            appId: "1:617772043013:web:9d9fe264a2e879e59e856c"
+          };
+          // Inicializa o Firebase
+          firebase.initializeApp(firebaseConfig);
+          var database = firebase.database();
+          var storage = firebase.storage();
+          var storageRef = storage.ref();
 
-   // Obtém as postagens do banco de dados
-database.ref('postagens').once('value').then(function(snapshot) {
-  var tableRows = '';
-  snapshot.forEach(function(childSnapshot) {
-    var postagem = childSnapshot.val();
-    var key = childSnapshot.key;
-    tableRows += '<tr><td><a href="#" class="post-link" data-key="' + key + '">' + postagem.titulo + '</a></td><td><a href="#" class="post-link" data-key="' + key + '">' + postagem.nome + '</a></td><td><button class="delete-button btn btn-danger btn-rounded btn-fw" data-key="' + key + '">Apagar</button></td></tr>';
-  });
-  // Adiciona as linhas da tabela à lista
-  $('#post-list').html('<table class="table table-striped" border ="1" style="border-collapse: collapse; width: 100%;"><thead><tr><th>Título</th><th>Autor</th><th>Ação</th></tr></thead><tbody>' + tableRows + '</tbody></table>');
-});
+          // Obtém as postagens do banco de dados
+          database.ref('postagens').once('value').then(function (snapshot) {
+            var tableRows = '';
+            snapshot.forEach(function (childSnapshot) {
+              var postagem = childSnapshot.val();
+              var key = childSnapshot.key;
+              tableRows += '<tr><td><a href="#" class="post-link" data-key="' + key + '">' + postagem.titulo +
+                '</a></td><td><a href="#" class="post-link" data-key="' + key + '">' + postagem.nome +
+                '</a></td><td><button class="delete-button btn btn-danger btn-rounded btn-fw" data-key="' +
+                key + '">Apagar</button></td></tr>';
+            });
+            // Adiciona as linhas da tabela à lista
+            $('#post-list').html(
+              '<table class="table table-striped" border ="1" style="border-collapse: collapse; width: 100%;"><thead><tr><th>Título</th><th>Autor</th><th>Ação</th></tr></thead><tbody>' +
+              tableRows + '</tbody></table>');
+          });
 
-    // Obtém a postagem selecionada e exibe os campos para edição
-    $(document).on('click', '.post-link', function() {
-        var key = $(this).data('key');
-        database.ref('postagens/' + key).once('value').then(function(snapshot) {
-            var postagem = snapshot.val();
-            var form = '<form id="form-' + key + '" class="forms-sample" enctype="multipart/form-data"><div class="form-group"><label>Título:</label><input class="form-control" placeholder="titulo" required type="text" name="titulo" value="' + postagem.titulo + '"></div><br><div class="form-group"><label>Texto:</label><br><textarea class="form-control" rows="4" required name="texto">' + postagem.texto + '</textarea></div><br><div class="form-group"><label>Imagem:</label><input type="file" name="imagem" ><br><input  type="hidden" name="key" value="' + key + '"></div><br><div><button class="btn btn-primary mr-2" type="submit">Salvar</button></div></form>';
-            $('#post-list').html(form);
-            // Salva as alterações no banco de dados
-            $('#form-' + key).submit(function(event) {
-                event.preventDefault();
-                var titulo = $('input[name=titulo]').val();
-                var texto = $('textarea[name=texto]').val();
-                var key = $('input[name=key]').val();
-                var file = $('input[name=imagem]')[0].files[0];
-        // Se uma nova imagem foi selecionada, salva a imagem no Storage e atualiza a URL da postagem
-        if (file) {
-            var fileName = file.name;
-            var storageFile = storageRef.child('imagens/' + fileName);
-            storageFile.put(file).then(function(snapshot) {
-            snapshot.ref.getDownloadURL().then(function(downloadURL) {
-            database.ref('postagens/' + key).update({
-            titulo: titulo,
-            texto: texto,
-            imagemURL: downloadURL
-             }).then(function() {
-                alert('Postagem atualizada com sucesso!');
-                location.reload();
-             });
-            });
-            });
-            }
-        // Caso contrário, apenas atualiza os campos de texto da postagem
-        else {
-            database.ref('postagens/' + key).update({
-            titulo: titulo,
-            texto: texto
-            }).then(function() {
-            alert('Postagem atualizada com sucesso!');
-            location.reload();
-            });
-        }
-        });
-        });
-        });
-           // Deleta a postagem selecionada
-          $(document).on('click', '.delete-button', function() {
+          // Obtém a postagem selecionada e exibe os campos para edição
+          $(document).on('click', '.post-link', function () {
             var key = $(this).data('key');
-            if (confirm('Tem certeza que deseja apagar esta postagem?')) {
-                // Deleta a imagem do storage, se houver
-                database.ref('postagens/' + key).once('value').then(function(snapshot) {
-                    var postagem = snapshot.val();
-                    if (postagem.imagem) {
-                        var imageName = key + '_' + postagem.imagem.split('/').pop();
-                        var imageRef = storageRef.child(imageName);
-                        imageRef.delete();
-                        
-                    }
-                    
+            database.ref('postagens/' + key).once('value').then(function (snapshot) {
+              var postagem = snapshot.val();
+              // Verifica se o usuário logado é o autor da postagem
+              if (postagem.nome === '<?php echo $_SESSION['nome']; ?>') {
+                var form = '<form id="form-' + key +
+                  '" class="forms-sample" enctype="multipart/form-data"><div class="form-group"><label>Título:</label><input class="form-control" placeholder="titulo" required type="text" name="titulo" value="' +
+                  postagem.titulo +
+                  '"></div><br><div class="form-group"><label>Texto:</label><br><textarea class="form-control" rows="4" required name="texto">' +
+                  postagem.texto +
+                  '</textarea></div><br><div class="form-group"><label>Imagem:</label><input type="file" name="imagem" ><br><input  type="hidden" name="key" value="' +
+                  key +
+                  '"></div><br><div><button class="btn btn-primary mr-2" type="submit">Salvar</button></div></form>';
+                $('#post-list').html(form);
+                // Salva as alterações no banco de dados
+                $('#form-' + key).submit(function (event) {
+                  event.preventDefault();
+                  var titulo = $('input[name=titulo]').val();
+                  var texto = $('textarea[name=texto]').val();
+                  var key = $('input[name=key]').val();
+                  var file = $('input[name=imagem]')[0].files[0];
+                  // Se uma nova imagem foi selecionada, salva a imagem no Storage e atualiza a URL da postagem
+                  if (file) {
+                    var fileName = file.name;
+                    var storageFile = storageRef.child('imagens/' + fileName);
+                    storageFile.put(file).then(function (snapshot) {
+                      snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                        database.ref('postagens/' + key).update({
+                          titulo: titulo,
+                          texto: texto,
+                          imagemURL: downloadURL
+                        }).then(function () {
+                          alert('Postagem atualizada com sucesso!');
+                          location.reload();
+                        });
+                      });
+                    });
+                  }
+                  // Caso contrário, apenas atualiza os campos de texto da postagem
+                  else {
+                    database.ref('postagens/' + key).update({
+                      titulo: titulo,
+                      texto: texto
+                    }).then(function () {
+                      alert('Postagem atualizada com sucesso!');
+                      location.reload();
+                    });
+                  }
                 });
-            // Deleta a postagem do banco de dados
-            database.ref('postagens/' + key).remove();
-            // Remove a postagem da lista
-            $(this).parent().remove();
-            window.location.reload(true);
-         }
-        });
-  </script>
+              } else {
+                alert('Você só tem permissão para editar a suas postagens');
+              }
+            });
+          });
+
+          // Deleta a postagem selecionada
+          // Verifica se o autor da postagem é o mesmo que está logado antes de permitir a exclusão
+          $(document).on('click', '.delete-button', function () {
+            var key = $(this).data('key');
+            database.ref('postagens/' + key).once('value').then(function (snapshot) {
+              var postagem = snapshot.val();
+              if (postagem.nome === '<?php echo $_SESSION["nome"]; ?>') {
+                if (confirm('Tem certeza que deseja apagar esta postagem?')) {
+                  // Deleta a imagem do storage, se houver
+                  if (postagem.imagem) {
+                    var imageName = key + '_' + postagem.imagem.split('/').pop();
+                    var imageRef = storageRef.child(imageName);
+                    imageRef.delete();
+                  }
+                  // Deleta a postagem do banco de dados
+                  database.ref('postagens/' + key).remove().then(function () {
+                    alert('Postagem apagada com sucesso!');
+                    location.reload();
+                  });
+                }
+              } else {
+                alert('Você não tem permissão para apagar esta postagem.');
+              }
+            });
+          });
+
+        </script>
 
 
-        
+
 
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
@@ -317,16 +359,17 @@ database.ref('postagens').once('value').then(function(snapshot) {
           <div class="card">
             <div class="card-body">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Johnny Santana</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Johnny
+                  Santana</span>
               </div>
             </div>
           </div>
         </footer>
         <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
   <!-- base:js -->

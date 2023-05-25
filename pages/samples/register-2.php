@@ -6,6 +6,8 @@ session_start();
 include('conexao.php');
 include('protect.php');
 
+
+
 if (isset($_POST['nome']) || isset($_POST['email']) ){
   if(strlen($_POST['email']) == 0){
     echo  "<script>alert('Preencha seu Email!');</script>";
@@ -25,8 +27,9 @@ if ($resultado->num_rows > 0) {
     // Caso contrário, realiza o cadastro
     $nome = $mysqli->real_escape_string($_POST['nome']);
     $senha = $mysqli->real_escape_string($_POST['senha']);
-    $sql = "INSERT INTO usuarios(nome, email, senha) VALUE ('$nome', '$email', '$senha')";
-    $sql_query = $mysqli->query($sql) or die("Falha no Cadastro". $mysqli->error);
+    $adm = $mysqli->real_escape_string($_POST['adm']);
+    $sql = "INSERT INTO usuarios(nome, email, senha, adm) VALUE ('$nome', '$email', md5('$senha'), '$adm')";
+    $sql_query = $mysqli->query($sql) or die("Falha no Cadastro". $mysqli->$error);
 
     header('Location: http://localhost/spica/pages/samples/usuarios.php');
     exit(); // Termina a execução do script após o redirecionamento
@@ -65,11 +68,18 @@ if ($resultado->num_rows > 0) {
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="../../images/logo-mini.svg"  alt="logo">
+                <img src="../../images/1683061149625.png" alt="logo">
               </div>
+              <?php if ($_SESSION['adm']==1){ ?>
+              <h1>Ação não Permitida</h1>
+              <div class="mt-3">
+                <a class="btn btn-block btn btn-danger btn-lg font-weight-medium auth-form-btn" href="../../index.php">
+                  Voltar</a>
+              </div>
+              <?php } else if($_SESSION['adm']==2){ ?>
               <h4>Novo Admnistrador</h4>
               <h6 class="font-weight-light">Preencha os Dados</h6>
-              <form class="pt-3" action = "" method="POST">
+              <form class="pt-3" action="" method="POST">
                 <div class="form-group">
                   <label>Nome</label>
                   <div class="input-group">
@@ -78,7 +88,8 @@ if ($resultado->num_rows > 0) {
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    <input name="nome" type="text" class="form-control form-control-lg border-left-0" placeholder="Nome">
+                    <input name="nome" type="text" class="form-control form-control-lg border-left-0"
+                      placeholder="Nome">
                   </div>
                 </div>
                 <div class="form-group">
@@ -89,10 +100,11 @@ if ($resultado->num_rows > 0) {
                         <i class="mdi mdi-email-outline text-primary"></i>
                       </span>
                     </div>
-                    <input name="email" type="email" class="form-control form-control-lg border-left-0" placeholder="Email">
+                    <input name="email" type="email" class="form-control form-control-lg border-left-0"
+                      placeholder="Email">
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <label>Senha</label>
                   <div class="input-group">
@@ -101,32 +113,53 @@ if ($resultado->num_rows > 0) {
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input name="senha" type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Senha">                        
+                    <input name="senha" type="password" class="form-control form-control-lg border-left-0"
+                      id="exampleInputPassword" placeholder="Senha">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Nivel</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="mdi mdi-security text-primary"></i>
+                      </span>
+                    </div>
+                    <select id="adm" name="adm" class="btn btn-outline-secondary dropdown-toggle">
+                      <option value="1">Nível de Acesso 1</option>
+                      <option value="2">Nível de Acesso 2</option>
+
+                    </select>
                   </div>
                 </div>
                 <div class="mb-4">
                   <div class="form-check">
-                   
+
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a> <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >Salvar </button> </a>
+                  <a> <button type="submit"
+                      class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Salvar </button> </a>
                 </div>
-
+                <?php } ?>
+                <?php if($_SESSION['adm'] == 2){ ?>
                 <div class="mt-3">
-                  <a class="btn btn-block btn btn-danger btn-lg font-weight-medium auth-form-btn"  href="usuarios.php"> Voltar</a>
+                  <a class="btn btn-block btn btn-danger btn-lg font-weight-medium auth-form-btn" href="usuarios.php">
+                    Voltar</a>
                 </div>
 
 
-                
+
 
               </form>
+              <?php } ?>
             </div>
           </div>
           <div class="col-lg-6 register-half-bg d-none d-lg-flex flex-row">
           </div>
         </div>
       </div>
+
       <!-- content-wrapper ends -->
     </div>
     <!-- page-body-wrapper ends -->

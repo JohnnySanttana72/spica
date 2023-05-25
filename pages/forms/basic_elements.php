@@ -11,6 +11,7 @@
     include('protect.php');
 
 ?>
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -31,7 +32,7 @@
 <body>
   <div class="container-scroller d-flex">
     <!-- partial:../../partials/_sidebar.html -->
-    
+
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
         <li class="nav-item sidebar-category">
@@ -71,8 +72,10 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_elements.php">Nova Postagem</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/editarPublic.php">Editar Postagens</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/basic_elements.php">Nova Postagem</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/forms/editarPublic.php">Editar Postagens</a>
+              </li>
             </ul>
           </div>
         </li>
@@ -83,7 +86,7 @@
             <span class="menu-title">Depoimentos</span>
           </a>
         </li>
-        
+
         <!--li class="nav-item">
           <a class="nav-link" href="../../pages/tables/basic-table.php">
             <i class="mdi mdi-grid-large menu-icon"></i>
@@ -96,6 +99,7 @@
             <span class="menu-title">Icons</span>
           </a>
         </li-->
+        <?php if ($_SESSION['adm']==2){ ?>
         <li class="nav-item sidebar-category">
           <p>Admnistração</p>
           <span></span>
@@ -111,18 +115,22 @@
               <!--li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.php"> Login 2 </a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.php"> Register </a></li-->
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.php"> Cadastrar Novo ADM</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.php"> Cadastrar Novo
+                  ADM</a></li>
               <li class="nav-item"> <a class="nav-link" href="../../pages/samples/usuarios.php"> Gerenciar ADM </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/relatorio.php"> Gerar Relatório </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/relatorio.php"> Gerar Relatório </a>
+              </li>
 
             </ul>
           </div>
         </li>
-    
-        
-       
+        <?php } ?>
+
+
+
+
     </nav>
-    
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
@@ -132,15 +140,18 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-mini.png"
+                alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-mini.png"
+                alt="logo" /></a>
           </div>
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Bem vindo, <?php echo $_SESSION['nome']; ?> </h4>
           <ul class="navbar-nav navbar-nav-right">
-            
-              
+
+
           </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
@@ -148,21 +159,19 @@
           <ul class="navbar-nav mr-lg-2">
             <li class="nav-item nav-search d-none d-lg-block">
               <div class="input-group">
-                <p type="text" class="form-control" placeholder="Nova Postagem" aria-label="search" aria-describedby="search">
+                <p type="text" class="form-control" placeholder="Nova Postagem" aria-label="search"
+                  aria-describedby="search">
               </div>
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="../../images/faces/face5.jpg" alt="profile"/>
+                <img src="../../images/faces/face5.jpg" alt="profile" />
                 <span class="nav-profile-name"><?php echo $_SESSION['nome']; ?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                  <i class="mdi mdi-settings text-primary"></i>
-                  Settings
-                </a>
+
                 <a href="../samples/logout.php" class="dropdown-item">
                   <i class="mdi mdi-logout text-primary"></i>
                   Logout
@@ -175,7 +184,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="https://www.uefs.br/"  target="_blank" class="nav-link icon-link">
+              <a href="http://www.dedu.uefs.br/modules/conteudo/conteudo.php?conteudo=40" target="_blank" class="nav-link icon-link">
                 <i class="mdi mdi-web"></i>
               </a>
             </li>
@@ -187,57 +196,58 @@
           </ul>
         </div>
       </nav>
-          
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title" style="font-size: x-large">Cadastrar Nova Postagem</h4>
-                 
-                  <form id="meu-formulario" class="forms-sample">
-                    <div class="form-group">
-                      <label for="titulo">Titulo</label>
-                      <input type="text" id="titulo" class="form-control" placeholder="titulo" required>
-                    </div>
-                
-                    <div class="form-group">
-                      <label for="texto">Texto</label>
-                      <textarea id="texto" class="form-control"  name="texto" rows="4" required></textarea>
-                    </div>
 
-                    <div class="form-group">
-                      <label>Imagem</label>
-                      <input type="file" id="imagem" name="imgagem" class="file-upload-default" required>
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info"  disabled placeholder="Upload" required>
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <button type="submit" value="Enviar" class="btn btn-primary mr-2">Salvar</button>
-                    <button class="btn btn-light" type="reset">Cancelar</button>
-                  </form>
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title" style="font-size: x-large">Cadastrar Nova Postagem</h4>
+
+            <form id="meu-formulario" class="forms-sample">
+              <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input type="text" id="titulo" class="form-control" placeholder="titulo" required>
+              </div>
+
+              <div class="form-group">
+                <label for="texto">Texto</label>
+                <textarea id="texto" class="form-control" name="texto" rows="4" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Imagem</label>
+                <input type="file" id="imagem" name="imgagem" class="file-upload-default" required>
+                <div class="input-group col-xs-12">
+                  <input type="text" class="form-control file-upload-info" disabled placeholder="Upload" required>
+                  <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                  </span>
                 </div>
               </div>
-            </div>
 
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Johnny Santana</span>
-              </div>
+              <button type="submit" value="Enviar" class="btn btn-primary mr-2">Salvar</button>
+              <button class="btn btn-light" type="reset">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+      <footer class="footer">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Johnny
+                Santana</span>
             </div>
           </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+        </div>
+      </footer>
+      <!-- partial -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
   <!-- base:js -->
@@ -257,7 +267,7 @@
 
 
   <script type="module">
-  // Configurar as credenciais do Firebase
+    // Configurar as credenciais do Firebase
   const firebaseConfig = {
     // Adicionar suas credenciais aqui
     apiKey: "AIzaSyDoJd--sy11Ui45otWPoQ-siH_KN8xrPU8",
@@ -332,5 +342,3 @@
 </body>
 
 </html>
-
-

@@ -15,7 +15,7 @@ if (isset($_POST['email'])  || isset($_POST['senha'])){
      $email = $mysqli->real_escape_string($_POST['email']);
      $senha = $mysqli->real_escape_string($_POST['senha']);
 
-     $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+     $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = md5('$senha')";
      $sql_query = $mysqli->query($sql_code) or die ("falha na execução do codigo ". $mysqli->error);
 
      $quantidade = $sql_query->num_rows;
@@ -30,6 +30,9 @@ if (isset($_POST['email'])  || isset($_POST['senha'])){
 
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['nome'] = $usuario['nome'];
+        $_SESSION['adm'] = $usuario['adm'];
+
+
 
         header("Location: http://localhost/spica/index.php");
 
@@ -58,7 +61,7 @@ if (isset($_POST['email'])  || isset($_POST['senha'])){
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/drawable-hdpi-icon.png" />
+  <link rel="shortcut icon" href="../../images/1683061149625.png" />
 </head>
 
 <body>
@@ -69,7 +72,7 @@ if (isset($_POST['email'])  || isset($_POST['senha'])){
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../images/logo-mini.svg" alt="logo">
+                <img src="../../images/1683061149625.png" alt="logo">
               </div>
               <h4>Olá! Bem vindo.</h4>
               <h6 class="font-weight-light">Faça login para continuar.</h6>
